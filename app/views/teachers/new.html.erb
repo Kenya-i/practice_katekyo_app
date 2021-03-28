@@ -1,0 +1,29 @@
+<h2>先生用の登録ページ</h2>
+
+<%= form_with model: @teacher do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+  </div>
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= f.text_field :password_confirmation %>
+  </div>
+  <div>
+    <%= f.label :school %>
+    <%= f.text_field :school %>
+  </div>
+  <div>
+    <%= f.label :self_introduction %>
+    <%= f.text_field :self_introduction %>
+  </div>
+  <%= f.submit "送信"%>
+<% end %>

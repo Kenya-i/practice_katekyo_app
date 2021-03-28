@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  school: MyString
+  self_introduction: MyString
+  major: false
+
+two:
+  school: MyString
+  self_introduction: MyString
+  major: false
