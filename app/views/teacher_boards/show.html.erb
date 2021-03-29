@@ -1,2 +1,17 @@
-<%= current_user.name %>
-<%= @teacher_board.price %>
+
+<div>
+  先生: <%= current_user.name %>
+</div>
+<div>
+  タイトル: <%= @teacher_board.title %>
+</div>
+<div>
+  教科: <%= @teacher_board.subject %>
+</div>
+<div>
+  授業内容: <%= @teacher_board.content %>
+</div>
+<div>
+  値段: <%= @teacher_board.price %>
+</div>
+

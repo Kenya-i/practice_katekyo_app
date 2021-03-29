@@ -1,6 +1,25 @@
 <h2>Teahcer IDは<%= current_user.id %>です</h2>
 <p>名前は<%= current_user.name %>です</p>
+<div>
+  <%= link_to "生徒募集掲示板を作る", new_teacher_board_path %>
+</div>
 
-<%= link_to "生徒募集掲示板を作る", new_teacher_board_path %>
-
-
+<% @teacher_boards.each do |board| %>
+  <div class="board-container">
+    <div>
+      授業タイトル: <%= board.title %>
+    </div>
+    <div>
+      値段: <%= board.price %>
+    </div>
+    <div>
+      授業内容: <%= board.content %>
+    </div>
+    <div>
+      教科: <%= board.subject %>
+    </div>
+    <div>
+      先生: <%= board.teacher.name %>
+    </div>
+  </div>
+<% end %>

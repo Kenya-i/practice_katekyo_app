@@ -1,4 +1,21 @@
-<%= @teacher_boards.each do |board| %>
-  <%= board.price %>
-  <%= board.title %>
+<% @teacher_boards.each do |board| %>
+<div class="board-container">
+  <%= link_to teacher_board_path(board.id) do %>
+    <div>
+      授業タイトル: <%= board.title %>
+    </div>
+    <div>
+      値段: <%= board.price %>
+    </div>
+    <div>
+      授業内容: <%= board.content %>
+    </div>
+    <div>
+      教科: <%= board.subject %>
+    </div>
+    <div>
+      先生: <%= board.teacher.name %>
+    </div>
+  <% end %>
+</div>
 <% end %>

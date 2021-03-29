@@ -2,7 +2,7 @@ class TeacherBoardsController < ApplicationController
   include TeacherSessionsHelper
 
   def index
-    @teacher_boards = TeacherBoard.all.order(create_at: :desc)
+    @teacher_boards = TeacherBoard.all.order(created_at: :desc)
   end
 
   def show

@@ -5,6 +5,8 @@
   </div>
   <div class="header-right">
     <% if logged_in? %>
+      <%= link_to "生徒募集掲示板を見る", teacher_boards_path %>
+      <%= link_to "講師募集掲示板を見る" %>
       <%= link_to "ログアウト", teacher_session_path(current_user.id), method: :delete %>
     <% else %>
       <ul class="header-list">

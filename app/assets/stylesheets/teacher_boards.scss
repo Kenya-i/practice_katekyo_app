@@ -1,3 +1,11 @@
 // Place all the styles related to the teacher_boards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.board-container {
+  width: 80%;
+  margin: auto;
+  border: 1px solid grey;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}

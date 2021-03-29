@@ -4,6 +4,7 @@ class TeachersController < ApplicationController
 
   def show
     @teacher = Teacher.find(params[:id])
+    @teacher_boards = @teacher.teacher_boards.all
   end
 
   def new
