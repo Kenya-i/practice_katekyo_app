@@ -15,6 +15,11 @@
   値段: <%= @teacher_board.price %>
 </div>
 
-<div class="contact-container">
-  <%= link_to "契約する", contracts_path, method: :post %>
-</div>
+<% if current_parent?(current_user) %>
+  <div class="contract-container" >
+    <%= form_with(model: current_user.contracts.build) do |f| %>
+      <div><%= hidden_field_tag :parent_id, current_user.id %></div>
+      <%= f.submit "契約する" %>
+    <% end %>
+  </div>
+<% end %>

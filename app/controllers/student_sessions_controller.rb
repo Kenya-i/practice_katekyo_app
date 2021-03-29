@@ -8,6 +8,7 @@ class StudentSessionsController < ApplicationController
     @student = Student.find_by(email: params[:email])
 
     if @student && @student.authenticate(params[:password])
+      # debugger
       log_in(@student)
       redirect_to student_path @student.id
     else

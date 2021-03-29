@@ -8,21 +8,46 @@ module TeacherSessionsHelper
                   "parent_sessions"]
 
     def log_in(user)
-      session[:teacher_id] = user.id if teacher_controller?
-      session[:student_id] = user.id if student_controller?
-      session[:parent_id] = user.id if parent_controller?
+      if teacher_controller?
+        session[:teacher_id] = user.id
+      elsif student_controller?
+        session[:student_id] = user.id
+      else parent_controller?
+        session[:parent_id] = user.id
+      end
+      # session[:teacher_id] = user.id if teacher_controller?
+      # session[:student_id] = user.id if student_controller?
+      # session[:parent_id] = user.id if parent_controller?
     end
 
     def current_user
-      @current_teacher ||= Teacher.find(session[:teacher_id]) if session[:teacher_id]
-      @current_student ||= Student.find(session[:student_id]) if session[:student_id]
-      @current_parent ||= Parent.find(session[:parent_id]) if session[:parent_id]
+      if session[:teacher_id]
+        @current_teacher ||= Teacher.find(session[:teacher_id])
+      elsif session[:student_id]
+        @current_student ||= Student.find(session[:student_id])
+      else session[:parent_id]
+        @current_parent ||= Parent.find(session[:parent_id])
+      end
+      # @current_teacher ||= Teacher.find(session[:teacher_id]) if session[:teacher_id]
+      # @current_student ||= Student.find(session[:student_id]) if session[:student_id]
+      # @current_parent ||= Parent.find(session[:parent_id]) if session[:parent_id]
+    end
+
+    def current_parent?(parent)
+      session[:parent_id] == parent.id
     end
 
     def logged_in?
-      !!session[:teacher_id] if session[:teacher_id]
-      !!session[:student_id] if session[:student_id]
-      !!session[:parent_id] if session[:parent_id]
+      if session[:teacher_id]
+        !!session[:teacher_id]
+      elsif session[:student_id]
+        !!session[:student_id]
+      else session[:parent_id]
+        !!session[:parent_id]
+      end
+      # !!session[:teacher_id] if session[:teacher_id]
+      # !!session[:student_id] if session[:student_id]
+      # !!session[:parent_id] if session[:parent_id]
     end
 
     def log_out
