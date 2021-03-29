@@ -11,17 +11,19 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.new(student_params)
-
+    @parent = Parent.find_by(email: student_params[:parent_email])
+    # debugger
     if @student.save
       log_in(@student)
       redirect_to 
     else
+      render :new
     end
   end
 
   private
 
     def student_params
-      params.require(:student).permit(:name, :email, :password, :password_confirmation,:school)
+      params.require(:student).permit(:name, :email, :password, :password_confirmation,:school, :parent_email)
     end
 end

@@ -1,4 +1,7 @@
 class TeachersController < ApplicationController
+  include TeacherSessionsHelper
+
+
   def index
   end
 
@@ -15,7 +18,7 @@ class TeachersController < ApplicationController
     @teacher = Teacher.new(teacher_params)
     
     if @teacher.save
-      session[:teacher_id] = @teacher.id
+      log_in(@teacher)
       redirect_to teacher_path @teacher.id
     else
       render :new

@@ -1,6 +1,6 @@
 
 <div>
-  先生: <%= current_user.name %>
+  先生: <%= @teacher_board.teacher.name %>
 </div>
 <div>
   タイトル: <%= @teacher_board.title %>
@@ -15,3 +15,6 @@
   値段: <%= @teacher_board.price %>
 </div>
 
+<div class="contact-container">
+  <%= link_to "契約する", contracts_path, method: :post %>
+</div>

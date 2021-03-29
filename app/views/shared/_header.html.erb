@@ -1,17 +1,37 @@
 <div class="header">
   <div class="header-main">
     <div class="header-title"><%= link_to "アプリ", root_path if !logged_in? %></div>
-    <div class="header-title"><%= link_to "アプリ", teacher_path(current_user.id) if logged_in? %></div>
+    <% if logged_in? %>
+      <% if teacher_controller? %>
+        <div class="header-title">
+          <%= link_to "アプリ", teacher_path(current_user.id) %>
+        </div>
+      <% elsif student_controller? %>
+        <div class="header-title">
+          <%= link_to "アプリ", student_path(current_user.id) %>
+        </div>
+      <% else parent_controller? %>
+        <div class="header-title">
+          <%= link_to "アプリ", parent_path(current_user.id) %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
   <div class="header-right">
     <% if logged_in? %>
       <%= link_to "生徒募集掲示板を見る", teacher_boards_path %>
       <%= link_to "講師募集掲示板を見る" %>
-      <%= link_to "ログアウト", teacher_session_path(current_user.id), method: :delete %>
+      <% if teacher_controller? %>
+        <%= link_to "ログアウト", teacher_session_path(current_user.id), method: :delete %>
+      <% elsif student_controller? %>
+        <%= link_to "ログアウト", student_session_path(current_user.id), method: :delete %>
+      <% else parent_controller? %>
+        <%= link_to "ログアウト", parent_session_path(current_user.id), method: :delete %>
+      <% end %>
     <% else %>
       <ul class="header-list">
         <li><%= link_to "サインアップ", signup_path %></li>
-        <li>ログイン</li>
+        <li><%= link_to "ログイン", login_path %></li>
       </ul>
     <% end %>
   </div>
