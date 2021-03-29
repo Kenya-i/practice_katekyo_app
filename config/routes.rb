@@ -4,4 +4,8 @@ Rails.application.routes.draw do
 
   resources :teacher_sessions
   resources :teachers
+
+  resources :teacher_boards
+
+  get "/signup", to: "signup#signup"
 end

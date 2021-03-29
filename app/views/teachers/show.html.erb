@@ -1,2 +1,6 @@
-<h2>Teahcer IDは<%= @teacher.id %>です</h2>
-<p>名前は<%= @teacher.name %>です</p>
+<h2>Teahcer IDは<%= current_user.id %>です</h2>
+<p>名前は<%= current_user.name %>です</p>
+
+<%= link_to "生徒募集掲示板を作る", new_teacher_board_path %>
+
+

@@ -1,3 +1,26 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+body, ul {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.header-list li {
+  display: inline-block;
+  line-height: 80px;
+}
+
+a {
+  text-decoration: none;
+}

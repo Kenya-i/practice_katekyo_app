@@ -14,12 +14,14 @@ class TeachersController < ApplicationController
     @teacher = Teacher.new(teacher_params)
     
     if @teacher.save
-      # debugger
+      session[:teacher_id] = @teacher.id
       redirect_to teacher_path @teacher.id
     else
       render :new
     end
   end
+
+  
   
   private
   

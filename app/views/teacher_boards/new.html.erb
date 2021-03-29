@@ -1,0 +1,21 @@
+<h2>生徒募集掲示板</h2>
+
+<%= form_with model: @teacher_board do |f| %>
+  <div>
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+  </div>
+  <div>
+    <%= f.label :subject %>
+    <%= f.text_field :subject %>
+  </div>
+  <%= f.submit "送信" %>
+<% end %>
